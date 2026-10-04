@@ -1,0 +1,16 @@
+date,merchant,amount,category
+2026-09-29,Blue Diner,71.46, Food
+2026-10-02,Dallas Bbq, 91.88,Food
+2026-10-02,MTA,9, Transportation
+2026-10-01,LIRR,5.25,Transportation
+2026-10-02,Family Water,42.33,Food
+2026-08-22,Kpot Buffet,90, Food
+2026-09-27,King Queens Buffet,60, Food
+2026-09-20,Lucy Bakery,50,Food
+2026-08-02,Pizza,20,Food
+2026-07-03,Duke's,27.33,Food
+2026-06-22,Dos Toros,22,Food
+2026-06-22,Bakery Korea Town,17,Food
+2026-09-29,Carey Bradshaw,3000,Rent
+2026-10-01,Macys,300,Shopping
+2026-06-17, AMC, 25, Entertainment
