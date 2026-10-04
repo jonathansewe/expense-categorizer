@@ -2,9 +2,7 @@
 
 
 
-A Python script that reads a CSV of transactions and prints total
-
-spending per category, sorted highest to lowest, with a grand total.
+A Python script that reads a CSV of transactions and prints total spending per category, sorted highest to lowest, with a grand total.
 
 
 
@@ -46,17 +44,15 @@ Total: $3831.25
 
 ```
 
+
+
+
+
 \## Notes
 
 
 
-The source CSV has inconsistent spacing after commas, so some category
-
-values arrive as " Food" instead of "Food". The script calls `.strip()`
-
-on each one, which removes the surrounding whitespace so both spellings
-
-count as the same category.
+The source CSV has inconsistent spacing after commas, so some category values arrive as " Food" instead of "Food". The script calls `.strip()` on each one, which removes the surrounding whitespace so both spellings count as the same category.
 
 
 
@@ -69,8 +65,6 @@ count as the same category.
 \- A dashboard with charts
 
 \- Automatic category assignment from the merchant name
-
-
 
 
 
