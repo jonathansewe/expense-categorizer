@@ -1,4 +1,4 @@
-\# Expense Categorizer
+# Expense Categorizer
 
 
 
@@ -6,7 +6,7 @@ A Python script that reads a CSV of transactions and prints total spending per c
 
 
 
-\## How to run
+## How to run
 
 
 
@@ -22,7 +22,7 @@ Requires Python 3. No external packages.
 
 
 
-\## Sample output
+## Sample output
 
 
 
@@ -48,7 +48,7 @@ Total: $3831.25
 
 
 
-\## Notes
+## Notes
 
 
 
@@ -56,7 +56,7 @@ The source CSV has inconsistent spacing after commas, so some category values ar
 
 
 
-\## Possible extensions
+## Possible extensions
 
 
 
