@@ -26,6 +26,8 @@ Requires Python 3. No external packages.
 
 \## Sample output
 
+
+
 ```
 
 $ python categorize.py
@@ -43,8 +45,6 @@ Transportation: $14.25
 Total: $3831.25
 
 ```
-
-
 
 \## Notes
 
