@@ -747,3 +747,46 @@ name, `sewe-finance`.
 green before merge. Branch protection makes that a rule instead of a habit.
 
 **Rejected alternatives.** *Push straight to `main`:* no review gate, and CI runs only after the fact.
+
+---
+
+# M1 build decisions
+
+## D-31 · M1 toolchain choices
+*2026-11-06 · M1*
+
+**Decision.**
+- **Python deps with `uv`** (`pyproject.toml` + `uv.lock`), Python 3.12 pinned in `api/.python-version`.
+- **API image installs uv from PyPI** (`pip install uv==<version>`) instead of copying it from `ghcr.io`.
+- **Expo SDK 58**, Expo Router, **web output `single`** (one static `index.html` + JS bundle).
+- **ESLint** with `eslint-config-expo`, warnings fail the build (`--max-warnings 0`).
+- **Jest projects:** `app` (component and unit tests) and `exercises` (`SOLUTION=reference` in CI).
+- **Theme and language saved on the device** with AsyncStorage until accounts exist (M2 moves them to `user_settings`).
+- **A device that reports no color scheme gets light** (`resolveTheme`).
+
+**Reason.** uv gives a lock file and fast, reproducible installs with one tool.
+Installing uv from PyPI works through more networks and proxies than
+ghcr.io (this build environment blocks ghcr.io). `single` output is the
+simplest thing to host on Vercel (one rewrite to `index.html`) and avoids
+pre-render/hydration mismatches with device-local preferences. Failing on
+warnings keeps the lint output at zero, so new warnings get noticed.
+Light is the browser default when no preference is reported.
+
+**Rejected alternatives.**
+- *pip + requirements.txt:* no lock file of the whole dependency tree by default.
+- *Web output `static` (pre-rendered pages):* each page would first render with default preferences, then flash to the saved theme.
+- *Fonts from the system only:* doesn't match the design (Space Grotesk headings).
+
+## D-32 · Template files removed from the Expo scaffold
+*2026-11-06 · M1*
+
+**Decision.** Removed what `create-expo-app` generated beyond the app itself:
+`AGENTS.md` (AI-assistant notes saying routes live in `src/app/`, which
+contradicts SPEC 4), `.claude/settings.json` (it enabled a third-party
+assistant plugin), and Expo's template `LICENSE`.
+
+**Reason.** The repo's layout is set by the spec, assistant configuration is
+Jonathan's call, and a license should be chosen on purpose rather than
+inherited from a template.
+
+**Rejected alternatives.** *Keep them:* conflicting instructions in the repo.
